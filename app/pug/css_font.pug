@@ -1,0 +1,21 @@
+extends base
+block variables
+	-var title = 'CSS шрифт'
+	-var active = 4
+
+block content
+	div.image-container
+		img(src="img/css-text-decoration.png")
+		img(src="img/css-probely.png")
+		img(src="img/css-text.png")
+	p
+		|font - универсальное свойство, которое позволяет одновременно задать несколько характеристик шрифта и текста.
+		|<br>Его синтаксис<br>
+		|font: [font-style||font-variant||font-weight] font-size [/line-height] font-family | inherit
+	p
+		|font-style - определяет начертание шрифта: обычное, курсивное или наклонное.
+		|Когда для текста установлено курсивное или наклонное начертание, браузер обращается к системе для поиска подходящего шрифта.
+		|Если заданный шрифт не найден, браузер использует специальный алгоритм для имитации нужного вида текста.
+		|Результат и качество при этом могут получиться неудовлетворительными, особенно при печати документа.
+		|<br>Его синтаксис<br>
+		|font-style: normal | italic | oblique | inherit

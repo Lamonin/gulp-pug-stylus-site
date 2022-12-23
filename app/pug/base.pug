@@ -1,5 +1,5 @@
 <!DOCTYPE html>
--var menus = ['CSS', 'Синтаксис CSS', 'Вставка CSS', 'CSS текст', 'CSS шрифт', 'Блоки']
+-var menus = {'CSS': 'index.html', 'Синтаксис CSS': '#', 'Вставка CSS': '#', 'CSS текст': 'css_text.html', 'CSS шрифт': 'css_font.html', 'Блоки': '#'}
 block variables
 html
 	head
@@ -9,17 +9,18 @@ html
 		link(rel="stylesheet", href="css/bootstrap-reboot.min.css")
 		link(rel="stylesheet", href="css/main.css")
 	body
-		mixin createMenu
-			div(class="menu")
-					each label, i in menus
-						if i == active
-							a(class='menu-link menu-link-active')=label
-						else
-							a(class='menu-link')=label
+		mixin createMenuItem(label, href, isactive = false)
+			if isactive
+				a(class="menu-link" class=isactive ? "menu-link-active" : null, href=href)&attributes(attributes)=label
+			else
+				a(href=href)&attributes(attributes)=label
 
-		div(class="main-body")
-			block menu
-				+createMenu
+		div.main-body
+			div.menu
+				-var n = 0
+				each link, label in menus
+					+createMenuItem(label, link, n==active)(class='menu-link')
+					-n++
 			block content
 		
 		//- Scripts

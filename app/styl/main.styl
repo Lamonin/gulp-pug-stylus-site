@@ -15,15 +15,16 @@ p
 	
 .main-body
 	display block
-	margin 32px 32px
+	margin 16px auto
 	padding 20px
 	background #e3e3e3
-	min-width 700px
+	max-width 700px
 	min-height 700px
 
 .menu
 	display grid
-	grid-template-columns repeat(6, 1fr)
+	padding-bottom 16px
+	grid-template-columns repeat(6, auto)
 	align-items center
 	justify-items stretch
 
@@ -37,10 +38,89 @@ $menu-item-label-color = black
 	text-align center
 	padding 10px 5px
 
-.menu-link:hover
-	background $hover-menu-item
-	color $menu-item-label-color
-	text-decoration none
+	&:hover
+		background $hover-menu-item
+		color $menu-item-label-color
+		text-decoration none
 
 .menu-link-active
 	background $hover-menu-item
+
+.content-css-container
+	& img
+		margin-left 10px
+		float right
+
+	& video
+		display block
+		margin 0 auto
+		max-width 540px
+
+image-grid-container(count)
+	display grid
+	grid-template-columns repeat(count, 1fr)
+	grid-column-gap 16px
+	margin-bottom: 10px
+
+	& img
+		width 100%
+		max-width 320px
+
+.image-container
+	image-grid-container(3)
+	
+.css-text-image-container
+	image-grid-container(4)
+
+.css-text-content
+	display grid
+	grid-template-columns 1fr 1fr
+	grid-template-areas "left right-top" "left right-bottom"
+	grid-gap 16px
+
+	& .css-text-content-left
+		grid-area left
+
+	& .css-text-content-right-top
+		grid-area right-top
+		width 100%
+		max-width 320px
+
+	& .css-text-content-right-bottom
+		grid-area right-bottom
+
+@media (max-width 600px)
+	p 
+		line-height 1.5em
+		font-size 12px
+
+	.main-body
+		margin 16px
+
+	.menu
+		grid-template-columns 1fr 1fr
+
+	.content-css-container
+		& img
+			display block
+			margin 0 auto 10px auto
+			float none
+
+		& video
+			width 100%
+
+	image-grid-vertical-container()
+		justify-items center
+		grid-template-columns 1fr
+		grid-row-gap: 16px
+
+	.image-container
+		image-grid-vertical-container()
+	
+	.css-text-image-container
+		image-grid-vertical-container()
+
+	.css-text-content
+		grid-template-columns 1fr
+		justify-items center
+		grid-template-areas "left" "right-top" "right-bottom"

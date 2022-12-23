@@ -15,15 +15,16 @@ p {
 }
 .main-body {
   display: block;
-  margin: 32px 32px;
+  margin: 16px auto;
   padding: 20px;
   background: #e3e3e3;
-  min-width: 700px;
+  max-width: 700px;
   min-height: 700px;
 }
 .menu {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  padding-bottom: 16px;
+  grid-template-columns: repeat(6, auto);
   align-items: center;
   justify-items: stretch;
 }
@@ -41,4 +42,85 @@ p {
 }
 .menu-link-active {
   background: #dcdcdc;
+}
+.content-css-container img {
+  margin-left: 10px;
+  float: right;
+}
+.content-css-container video {
+  display: block;
+  margin: 0 auto;
+  max-width: 540px;
+}
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 16px;
+  margin-bottom: 10px;
+}
+.image-container img {
+  width: 100%;
+  max-width: 320px;
+}
+.css-text-image-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 16px;
+  margin-bottom: 10px;
+}
+.css-text-image-container img {
+  width: 100%;
+  max-width: 320px;
+}
+.css-text-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "left right-top" "left right-bottom";
+  grid-gap: 16px;
+}
+.css-text-content .css-text-content-left {
+  grid-area: left;
+}
+.css-text-content .css-text-content-right-top {
+  grid-area: right-top;
+  width: 100%;
+  max-width: 320px;
+}
+.css-text-content .css-text-content-right-bottom {
+  grid-area: right-bottom;
+}
+@media (max-width: 600px) {
+  p {
+    line-height: 1.5em;
+    font-size: 12px;
+  }
+  .main-body {
+    margin: 16px;
+  }
+  .menu {
+    grid-template-columns: 1fr 1fr;
+  }
+  .content-css-container img {
+    display: block;
+    margin: 0 auto 10px auto;
+    float: none;
+  }
+  .content-css-container video {
+    width: 100%;
+  }
+  .image-container {
+    justify-items: center;
+    grid-template-columns: 1fr;
+    grid-row-gap: 16px;
+  }
+  .css-text-image-container {
+    justify-items: center;
+    grid-template-columns: 1fr;
+    grid-row-gap: 16px;
+  }
+  .css-text-content {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    grid-template-areas: "left" "right-top" "right-bottom";
+  }
 }
